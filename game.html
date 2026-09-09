@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Pixel Quest - Fase 1</title>
+
+    style.css
+</head>
+
+<body class="game-page">
+
+    <main class="game-container">
+
+        <header class="status-panel">
+
+            <div class="status-item">
+                <span class="status-label">JOGADOR</span>
+                <strong id="playerName">PLAYER</strong>
+            </div>
+
+            <div class="status-item">
+                <span class="status-label">VIDAS</span>
+                <strong id="lives">❤️ ❤️ ❤️</strong>
+            </div>
+
+            <div class="status-item">
+                <span class="status-label">CRISTAIS</span>
+
+                <strong>
+                    💎 <span id="crystals">0</span>
+                </strong>
+            </div>
+
+            <div class="status-item">
+                <span class="status-label">FASE</span>
+                <strong>1</strong>
+            </div>
+
+        </header>
+
+        <section class="game-screen">
+
+            <div class="level-name">
+                FASE 1: A FLORESTA DOS PIXELS
+            </div>
+
+            <div class="scene" id="scene">
+                <div class="moon">🌙</div>
+
+                <div class="stars">
+                    ✦　·　✧　·　✦　·　✧
+                </div>
+
+                <div class="character" id="character">
+                    🧙
+                </div>
+
+                <div class="forest">
+                    🌲 🌳 🌲 🌳 🌲
+                </div>
+            </div>
+
+            <div class="story-panel">
+
+                <h1 id="storyTitle">
+                    Uma aventura está começando...
+                </h1>
+
+                <p id="storyText">
+                    Você acordou em uma floresta misteriosa.
+                    Dois caminhos aparecem à sua frente.
+                    Qual deles você deseja seguir?
+                </p>
+
+                <div
+                    class="choice-buttons"
+                    id="choiceButtons"
+                >
+                    <button
+                        class="choice-button"
+                        onclick="chooseLeftPath()"
+                    >
+                        ◀ CAMINHO DA ESQUERDA
+                    </button>
+
+                    <button
+                        class="choice-button"
+                        onclick="chooseRightPath()"
+                    >
+                        CAMINHO DA DIREITA ▶
+                    </button>
+                </div>
+
+            </div>
+
+        </section>
+
+        <div class="game-footer">
+            <button
+                class="small-game-button"
+                onclick="restartGame()"
+            >
+                ↻ REINICIAR
+            </button>
+
+            <a
+                href="index.html"
+                class="small-game-button exit-game-button"
+            >
+                ⏹ VOLTAR AO MENU
+            </a>
+        </div>
+
+    </main>
+
+    script.jsscript>
+
+</body>
+</html>
