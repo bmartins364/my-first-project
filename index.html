@@ -1,11 +1,17 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
 
     <meta
         name="viewport"
         content="width=device-width, initial-scale=1.0"
+    >
+
+    <meta
+        name="description"
+        content="Pixel Quest, um jogo de aventura retrô."
     >
 
     <title>Pixel Quest</title>
@@ -15,105 +21,374 @@
 
 <body class="menu-page">
 
-    <main class="game-menu">
+    <div class="stars stars-one"></div>
+    <div class="stars stars-two"></div>
 
-        <header class="game-header">
-            <div class="game-icon">🎮</div>
+    <header class="top-bar">
+        <div class="sound-status">
+            <span class="status-light"></span>
+            SISTEMA ONLINE
+        </div>
 
-            <h1>PIXEL QUEST</h1>
-
-            <p class="subtitle">
-                A aventura começa agora!
-            </p>
-        </header>
-
-        <form
-            class="player-form"
-            action="game.html"
-            method="get"
+        <button
+            class="sound-button"
+            id="soundButton"
+            type="button"
+            aria-label="Ativar ou desativar sons"
         >
-            <label for="username">
-                NOME DO JOGADOR
-            </label>
+            🔊 SOM
+        </button>
+    </header>
 
-            <input
-                type="text"
-                id="username"
-                name="username"
-                minlength="2"
-                maxlength="7"
-                placeholder="SEU NOME"
-                autocomplete="off"
-                required
-            >
+    <main class="menu-screen">
 
-            <small>
-                Escolha um nome de 2 a 7 caracteres
-            </small>
+        <section class="hero-area">
 
-            <button
-                type="submit"
-                class="menu-button start-button"
-            >
-                ▶ INICIAR JOGO
-            </button>
-        </form>
+            <div class="game-logo">
+                <span class="logo-small">THE ADVENTURE OF</span>
 
-        <nav class="menu-options">
-            #instructions
-                📜 COMO JOGAR
-            </a>
+                <h1>PIXEL</h1>
+                <h1 class="quest-word">QUEST</h1>
 
-            #credits
-                ⭐ CRÉDITOS
-            </a>
-        </nav>
+                <div class="logo-line">
+                    <span></span>
+                    <strong>✦</strong>
+                    <span></span>
+                </div>
 
-        <section
-            class="information-box"
-            id="instructions"
-        >
-            <h2>📜 COMO JOGAR</h2>
+                <p>THE LOST CRYSTALS</p>
+            </div>
 
-            <p>
-                Escolha seu nome, explore os caminhos e encontre
-                o portal final.
-            </p>
+            <div class="game-scene" aria-label="Cenário do jogo">
 
-            <ul>
-                <li>❤️ Você começa com três vidas.</li>
-                <li>💎 Colete cristais para ganhar pontos.</li>
-                <li>🌲 Escolha os caminhos com cuidado.</li>
-                <li>⚠️ Evite as criaturas da floresta.</li>
-            </ul>
+                <div class="pixel-moon"></div>
 
-            #
-                FECHAR
-            </a>
+                <div class="mountain mountain-back"></div>
+                <div class="mountain mountain-middle"></div>
+
+                <div class="floating-crystal crystal-one">◆</div>
+                <div class="floating-crystal crystal-two">◆</div>
+                <div class="floating-crystal crystal-three">◆</div>
+
+                <div class="hero-character" aria-label="Personagem">
+                    <div class="hero-hair"></div>
+                    <div class="hero-head"></div>
+                    <div class="hero-body"></div>
+                    <div class="hero-arm hero-arm-left"></div>
+                    <div class="hero-arm hero-arm-right"></div>
+                    <div class="hero-leg hero-leg-left"></div>
+                    <div class="hero-leg hero-leg-right"></div>
+                </div>
+
+                <div class="ground">
+                    <div class="grass"></div>
+                </div>
+            </div>
+
         </section>
 
-        <section
-            class="information-box"
-            id="credits"
-        >
-            <h2>⭐ CRÉDITOS</h2>
+        <section class="menu-card">
 
-            <p>
-                Projeto criado por Barbara Martins para praticar
-                HTML, CSS e JavaScript.
-            </p>
+            <div class="card-decoration">
+                <span></span>
+                <strong>PLAYER LOGIN</strong>
+                <span></span>
+            </div>
 
-            #
-                FECHAR
-            </a>
+            <form
+                class="player-form"
+                id="playerForm"
+                action="game.html"
+                method="get"
+            >
+                <label for="username">
+                    DIGITE O NOME DO JOGADOR
+                </label>
+
+                <div class="input-wrapper">
+                    <span class="input-icon">◆</span>
+
+                    <input
+                        type="text"
+                        id="username"
+                        name="username"
+                        minlength="2"
+                        maxlength="7"
+                        placeholder="PLAYER"
+                        autocomplete="off"
+                        spellcheck="false"
+                        required
+                    >
+
+                    <span class="character-counter" id="characterCounter">
+                        0/7
+                    </span>
+                </div>
+
+                <p class="form-message" id="formMessage">
+                    Escolha um nome de 2 a 7 caracteres
+                </p>
+
+                <button
+                    type="submit"
+                    class="game-button primary-button"
+                >
+                    <span class="button-icon">▶</span>
+                    INICIAR AVENTURA
+                </button>
+            </form>
+
+            <div class="secondary-buttons">
+
+                <button
+                    type="button"
+                    class="game-button secondary-button"
+                    data-modal="instructionsModal"
+                >
+                    <span class="button-icon">?</span>
+                    COMO JOGAR
+                </button>
+
+                <button
+                    type="button"
+                    class="game-button secondary-button"
+                    data-modal="creditsModal"
+                >
+                    <span class="button-icon">★</span>
+                    CRÉDITOS
+                </button>
+
+            </div>
+
+            <div class="press-start">
+                <span>◆</span>
+                PREPARE-SE PARA A AVENTURA
+                <span>◆</span>
+            </div>
+
         </section>
-
-        <footer>
-            <p>© 2026 Barbara Martins</p>
-            <p>Meu primeiro projeto</p>
-        </footer>
 
     </main>
 
-</body>
-</html>
+    <footer class="page-footer">
+        <span>PIXEL QUEST</span>
+        <span>•</span>
+        <span>2026</span>
+        <span>•</span>
+        <span>BARBARA MARTINS</span>
+    </footer>
+
+    <div
+        class="modal-overlay"
+        id="instructionsModal"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="instructionsTitle"
+    >
+        <section class="game-modal">
+
+            <button
+                type="button"
+                class="modal-close"
+                aria-label="Fechar"
+            >
+                ×
+            </button>
+
+            <div class="modal-icon">📜</div>
+
+            <h2 id="instructionsTitle">
+                COMO JOGAR
+            </h2>
+
+            <p class="modal-description">
+                Explore a Floresta dos Pixels e encontre o portal
+                antes que todas as vidas acabem.
+            </p>
+
+            <div class="instruction-list">
+
+                <div class="instruction-item">
+                    <span class="instruction-icon">❤️</span>
+
+                    <div>
+                        <strong>VIDAS</strong>
+                        <p>Você começa a aventura com três vidas.</p>
+                    </div>
+                </div>
+
+                <div class="instruction-item">
+                    <span class="instruction-icon">💎</span>
+
+                    <div>
+                        <strong>CRISTAIS</strong>
+                        <p>Encontre cristais para aumentar a pontuação.</p>
+                    </div>
+                </div>
+
+                <div class="instruction-item">
+                    <span class="instruction-icon">🌲</span>
+
+                    <div>
+                        <strong>CAMINHOS</strong>
+                        <p>
+                            Cada escolha pode revelar um tesouro
+                            ou uma criatura.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="instruction-item">
+                    <span class="instruction-icon">🏆</span>
+
+                    <div>
+                        <strong>OBJETIVO</strong>
+                        <p>Encontre o portal para concluir a fase.</p>
+                    </div>
+                </div>
+
+            </div>
+
+            <button
+                type="button"
+                class="game-button primary-button modal-confirm"
+            >
+                ENTENDI!
+            </button>
+
+        </section>
+    </div>
+
+    <div
+        class="modal-overlay"
+        id="creditsModal"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="creditsTitle"
+    >
+        <section class="game-modal credits-modal">
+
+            <button
+                type="button"
+                class="modal-close"
+                aria-label="Fechar"
+            >
+                ×
+            </button>
+
+            <div class="modal-icon">⭐</div>
+
+            <h2 id="creditsTitle">
+                CRÉDITOS
+            </h2>
+
+            <div class="creator-card">
+                <span>CRIADO POR</span>
+                <strong>BARBARA MARTINS</strong>
+
+                <p>
+                    Primeiro projeto desenvolvido para praticar
+                    HTML, CSS e JavaScript.
+                </p>
+            </div>
+
+            <div class="technology-list">
+                <span>HTML</span>
+                <span>CSS</span>
+                <span>JAVASCRIPT</span>
+            </div>
+
+            <button
+                type="button"
+                class="game-button primary-button modal-confirm"
+            >
+                VOLTAR AO MENU
+            </button>
+
+        </section>
+    </div>
+
+    <script>
+        const usernameInput =
+            document.getElementById("username");
+
+        const characterCounter =
+            document.getElementById("characterCounter");
+
+        const playerForm =
+            document.getElementById("playerForm");
+
+        const formMessage =
+            document.getElementById("formMessage");
+
+        const soundButton =
+            document.getElementById("soundButton");
+
+        let soundEnabled = true;
+
+        usernameInput.addEventListener("input", function () {
+            const username = usernameInput.value;
+
+            characterCounter.textContent =
+                username.length + "/7";
+
+            usernameInput.value =
+                username.replace(/[^a-zA-ZÀ-ÿ0-9]/g, "");
+
+            formMessage.textContent =
+                "Escolha um nome de 2 a 7 caracteres";
+
+            formMessage.classList.remove("error-message");
+        });
+
+        playerForm.addEventListener("submit", function (event) {
+            const username =
+                usernameInput.value.trim();
+
+            if (username.length < 2) {
+                event.preventDefault();
+
+                formMessage.textContent =
+                    "O nome precisa ter pelo menos 2 caracteres.";
+
+                formMessage.classList.add("error-message");
+
+                usernameInput.focus();
+
+                return;
+            }
+
+            playSound(520, 0.12);
+        });
+
+        document
+            .querySelectorAll("[data-modal]")
+            .forEach(function (button) {
+                button.addEventListener("click", function () {
+                    const modalId =
+                        button.getAttribute("data-modal");
+
+                    const modal =
+                        document.getElementById(modalId);
+
+                    modal.classList.add("modal-visible");
+
+                    document.body.classList.add("modal-open");
+
+                    playSound(440, 0.08);
+                });
+            });
+
+        function closeModal(modal) {
+            modal.classList.remove("modal-visible");
+
+            document.body.classList.remove("modal-open");
+
+            playSound(300, 0.06);
+        }
+
+        document
+            .querySelectorAll(".modal-close, .modal-confirm")
+            .forEach(function (button) {
+                button.addEventListener("click", function () {
+            
