@@ -1,17 +1,11 @@
-/* Remove os espaços automáticos do navegador */
 * {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
 }
 
-/* Aparência geral da página */
 body {
     min-height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
     padding: 30px 20px;
 
     font-family: "Courier New", monospace;
@@ -20,34 +14,25 @@ body {
     background:
         linear-gradient(
             180deg,
-            #07152f 0%,
-            #102b5c 50%,
+            #061126 0%,
+            #102b5c 55%,
             #184681 100%
         );
 }
 
-/* Estrelas decorativas no fundo */
-body::before {
-    content: "✦  ·  ✧  ·  ✦  ·  ✧  ·  ✦";
-    position: fixed;
-    top: 30px;
-    left: 0;
+/* =========================
+   MENU INICIAL
+========================= */
 
-    width: 100%;
-
-    color: #8ecfff;
-    font-size: 22px;
-    letter-spacing: 18px;
-    text-align: center;
-
-    opacity: 0.5;
+.menu-page {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-/* Caixa principal do menu */
 .game-menu {
     width: 100%;
     max-width: 520px;
-
     padding: 40px 35px;
 
     background-color: #0d2852;
@@ -62,20 +47,18 @@ body::before {
     text-align: center;
 }
 
-/* Cabeçalho */
 .game-header {
     margin-bottom: 30px;
 }
 
 .game-icon {
     margin-bottom: 12px;
-
     font-size: 55px;
 
     animation: floating 2s ease-in-out infinite;
 }
 
-h1 {
+.game-header h1 {
     color: #ffdd57;
 
     font-size: 40px;
@@ -94,11 +77,9 @@ h1 {
     font-weight: bold;
 }
 
-/* Área com o nome do jogador */
 .player-form {
     display: flex;
     flex-direction: column;
-
     margin-bottom: 15px;
 }
 
@@ -106,15 +87,12 @@ h1 {
     margin-bottom: 10px;
 
     color: #ffffff;
-
     font-size: 15px;
     font-weight: bold;
-    letter-spacing: 1px;
 }
 
 .player-form input {
     width: 100%;
-
     padding: 15px;
 
     background-color: #eaf6ff;
@@ -128,6 +106,7 @@ h1 {
     font-family: "Courier New", monospace;
     font-size: 18px;
     font-weight: bold;
+
     text-align: center;
     text-transform: uppercase;
 }
@@ -135,7 +114,8 @@ h1 {
 .player-form input:focus {
     border-color: #ffdd57;
 
-    box-shadow: 0 0 12px rgba(255, 221, 87, 0.6);
+    box-shadow:
+        0 0 12px rgba(255, 221, 87, 0.6);
 }
 
 .player-form small {
@@ -146,7 +126,6 @@ h1 {
     font-size: 12px;
 }
 
-/* Botões */
 .menu-button {
     display: block;
     width: 100%;
@@ -166,13 +145,9 @@ h1 {
     font-weight: bold;
 
     text-decoration: none;
-
     cursor: pointer;
 
-    transition:
-        background-color 0.2s,
-        transform 0.2s,
-        box-shadow 0.2s;
+    transition: 0.2s;
 }
 
 .menu-button:hover {
@@ -183,13 +158,6 @@ h1 {
     transform: translateY(-2px);
 }
 
-.menu-button:active {
-    box-shadow: none;
-
-    transform: translateY(2px);
-}
-
-/* Botão principal */
 .start-button {
     background-color: #e59110;
     border-color: #ffdd57;
@@ -200,7 +168,6 @@ h1 {
     background-color: #ffb51b;
 }
 
-/* Caixas de instruções e créditos */
 .information-box {
     display: none;
 
@@ -215,7 +182,6 @@ h1 {
     text-align: left;
 }
 
-/* Mostra a caixa quando o link é clicado */
 .information-box:target {
     display: block;
 }
@@ -248,7 +214,6 @@ h1 {
     line-height: 1.5;
 }
 
-/* Botão para fechar as informações */
 .close-button {
     display: block;
 
@@ -262,15 +227,11 @@ h1 {
 
     font-size: 13px;
     font-weight: bold;
+
     text-align: center;
     text-decoration: none;
 }
 
-.close-button:hover {
-    background-color: #2868a8;
-}
-
-/* Rodapé */
 footer {
     margin-top: 30px;
 
@@ -279,14 +240,274 @@ footer {
     line-height: 1.6;
 }
 
-/* Movimento do ícone do controle */
+/* =========================
+   TELA DO JOGO
+========================= */
+
+.game-page {
+    display: block;
+}
+
+.game-container {
+    width: 100%;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.status-panel {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+
+    margin-bottom: 18px;
+    padding: 15px;
+
+    background-color: #071a37;
+
+    border: 4px solid #62b5ff;
+    box-shadow: 5px 5px 0 #020b18;
+}
+
+.status-item {
+    padding: 10px;
+
+    background-color: #0d2852;
+    border: 2px solid #2868a8;
+
+    text-align: center;
+}
+
+.status-label {
+    display: block;
+    margin-bottom: 8px;
+
+    color: #75add5;
+    font-size: 11px;
+}
+
+.status-item strong {
+    color: #ffffff;
+    font-size: 14px;
+}
+
+.game-screen {
+    overflow: hidden;
+
+    background-color: #0d2852;
+
+    border: 5px solid #62b5ff;
+
+    box-shadow:
+        0 0 0 7px #071a37,
+        0 0 30px rgba(98, 181, 255, 0.3);
+}
+
+.level-name {
+    padding: 13px;
+
+    background-color: #071a37;
+    border-bottom: 3px solid #62b5ff;
+
+    color: #ffdd57;
+
+    font-size: 15px;
+    font-weight: bold;
+    text-align: center;
+}
+
+.scene {
+    position: relative;
+
+    min-height: 290px;
+    padding: 25px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    overflow: hidden;
+
+    background:
+        linear-gradient(
+            180deg,
+            #0a1740 0%,
+            #183f75 60%,
+            #0b382d 61%,
+            #12513d 100%
+        );
+
+    text-align: center;
+}
+
+.moon {
+    position: absolute;
+    top: 22px;
+    right: 35px;
+
+    font-size: 48px;
+}
+
+.stars {
+    color: #d8efff;
+    font-size: 22px;
+    letter-spacing: 13px;
+}
+
+.character {
+    position: relative;
+    z-index: 2;
+
+    margin-top: 55px;
+
+    font-size: 72px;
+
+    animation: floating 1.5s ease-in-out infinite;
+}
+
+.forest {
+    font-size: 54px;
+    letter-spacing: 10px;
+    white-space: nowrap;
+}
+
+.story-panel {
+    padding: 28px;
+
+    background-color: #071a37;
+    border-top: 4px solid #62b5ff;
+}
+
+.story-panel h1 {
+    margin-bottom: 16px;
+
+    color: #ffdd57;
+
+    font-size: 22px;
+    letter-spacing: 1px;
+    text-align: center;
+
+    text-shadow: 2px 2px 0 #172441;
+}
+
+.story-panel p {
+    max-width: 700px;
+    margin: 0 auto 24px;
+
+    color: #d5edff;
+
+    font-size: 15px;
+    line-height: 1.7;
+    text-align: center;
+}
+
+.choice-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.choice-button {
+    min-width: 240px;
+    padding: 15px 18px;
+
+    background-color: #245f9e;
+
+    border: 3px solid #8ed4ff;
+    border-radius: 3px;
+
+    color: #ffffff;
+
+    font-family: "Courier New", monospace;
+    font-size: 13px;
+    font-weight: bold;
+
+    text-align: center;
+    text-decoration: none;
+
+    cursor: pointer;
+
+    transition: 0.2s;
+}
+
+.choice-button:hover {
+    background-color: #347ec6;
+
+    box-shadow: 4px 4px 0 #020b18;
+
+    transform: translateY(-2px);
+}
+
+.victory-button {
+    background-color: #d98a0b;
+    border-color: #ffdd57;
+    color: #07152f;
+}
+
+.game-footer {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    flex-wrap: wrap;
+
+    margin-top: 25px;
+}
+
+.small-game-button {
+    padding: 12px 20px;
+
+    background-color: #16477c;
+    border: 3px solid #62b5ff;
+
+    color: #ffffff;
+
+    font-family: "Courier New", monospace;
+    font-size: 12px;
+    font-weight: bold;
+
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.small-game-button:hover {
+    background-color: #2868a8;
+}
+
+.exit-game-button {
+    background-color: #512957;
+    border-color: #aa70b7;
+}
+
+.final-symbol {
+    margin-top: 45px;
+    font-size: 90px;
+
+    animation: floating 1.2s ease-in-out infinite;
+}
+
+.final-message,
+.game-over-message {
+    margin-bottom: 50px;
+
+    font-size: 32px;
+    font-weight: bold;
+}
+
+.final-message {
+    color: #ffdd57;
+}
+
+.game-over-message {
+    color: #ff7b7b;
+}
+
 @keyframes floating {
     0% {
         transform: translateY(0);
     }
 
     50% {
-        transform: translateY(-8px);
+        transform: translateY(-9px);
     }
 
     100% {
@@ -294,18 +515,42 @@ footer {
     }
 }
 
-/* Ajustes para celular */
-@media (max-width: 550px) {
+@media (max-width: 700px) {
+    body {
+        padding: 15px;
+    }
+
     .game-menu {
         padding: 30px 20px;
     }
 
-    h1 {
+    .game-header h1 {
         font-size: 29px;
     }
 
-    .game-icon {
-        font-size: 45px;
+    .status-panel {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .scene {
+        min-height: 250px;
+    }
+
+    .forest {
+        font-size: 37px;
+        letter-spacing: 2px;
+    }
+
+    .character {
+        font-size: 58px;
+    }
+
+    .choice-button {
+        width: 100%;
+        min-width: 0;
+    }
+
+    .story-panel {
+        padding: 23px 17px;
     }
 }
-`
